@@ -32,18 +32,22 @@
                             </span>
                         </p>
                     </div>
-                    <div class="field">
-                        <label id="view" class="radio">Which View: </label>
-                        <input id="view" name="view" type="radio" />
-                        Mobile View
-                        <input id="view" name="view" type="radio" />
-                        Desktop View
-                    </div>
-                    <div class="field"><label id="check" class="radio">Level of Check</label>
-                        <input id="check" name="check" type="radio" />
-                        Basic Check
-                        <input id="check" name="check" type="radio" />
-                        Advanced Check
+                    <div class="field is-horizontal">
+                        <label for="view" class="radio">Which View:</label>
+                        <div class="control ml-2">
+                            <input id="mobile-view" name="view" type="radio" aria-label="Mobile view" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-mobile-alt"></i>
+                            </span>
+                            Mobile View
+                        </div>
+                        <div class="control ml-4">
+                            <input id="desktop-view" name="view" type="radio" aria-label="Desktop view" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-desktop-alt"></i>
+                            </span>
+                            Desktop View
+                        </div>
                     </div>
 
                     <submit class="button is-primary is-dark"><span class="icon is-small"><i
