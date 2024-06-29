@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Web Accessibility Checker</title>
     </head>
 
@@ -17,13 +20,31 @@
             </div>
         </section>
         <section class="section">
-            <div class="form-group">
-                <div class="field">
-                    <label for="url" class="label">Enter URL:</label>
-                    <div  id = "url "class="control">
-                        <input type="text" class="input is-link is-rounded">
+            <div class="container is-fluid">
+                <form action="" class="form-group">
+                    <div class="field">
+                        <label id="user-input-url" class="label">Enter URL: </label>
+                        <div class="control">
+                            <input id="user-input-url" class="input is-link" type="text"
+                                placeholder="https://example.com">
+                        </div>
                     </div>
-                </div>
+                    <div class="field">
+                        <label id="view" class="radio">Which View: </label>
+                        <input id="view" name="view" type="radio" />
+                        Mobile View
+                        <input id="view" name="view" type="radio" />
+                        Desktop View
+                    </div>
+                    <div class="field"><label id="check" class="checkbox">Level of Check</label>
+                        <input id="check" name="check" type="radio" />
+                        Basic Check
+                        <input id="check" name="check"type="radio" />
+                        Advanced Check
+                    </div>
+
+
+                </form>
             </div>
         </section>
     </body>
