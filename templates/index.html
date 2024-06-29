@@ -9,6 +9,15 @@
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Web Accessibility Checker</title>
+        <style>
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                /* Adjust as needed */
+            }
+        </style>
     </head>
 
     <body>
@@ -53,8 +62,10 @@
                     </div>
             </div>
 
-            <submit class="button is-primary is-dark"><span class="icon is-small"><i
-                        class="fa-solid fa-check"></i></span><span>Check</span></submit>
+            <div class="form-container">
+                <submit class="button is-primary is-dark is-responsive"><span class="icon is-small"><i
+                            class="fa-solid fa-check"></i></span><span>Check</span></submit>
+            </div>
 
 
             </form>
