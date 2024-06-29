@@ -8,6 +8,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+            .error-input {
+                border-color: #ff0000;
+                /* Red border */
+            }
+
+            .error-input:focus {
+                border-color: #ff0000;
+                /* Red border on focus */
+            }
+
+            .help.is-danger {
+                color: #ff0000;
+                /* Red text for error message */
+            }
+        </style>
         <title>Web Accessibility Checker</title>
     </head>
 
@@ -25,11 +42,13 @@
                     <div class="field">
                         <label for="user-input-url" class="label">Enter URL: </label>
                         <p class="control has-icons-left has-icons-right">
-                            <input id="user-input-url" class="input is-primary" type="text"
+                            <input id="user-input-url" class="input is-primary error-input" type="text"
                                 placeholder="https://example.com" />
                             <span class="icon is-small is-left">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
+                            <span id="error-message" class="help is-danger" style="display:none;">Invalid URL
+                                format</span>
                         </p>
                     </div>
                     <div class="field is-horizontal">
@@ -57,6 +76,24 @@
                 </form>
             </div>
         </section>
+        <script>
+            function validateInput() {
+                var input = document.getElementById('user-input-url');
+                var errorMessage = document.getElementById('error-message');
+
+                // Simple validation: checks if the input is empty
+                if (input.value.trim() === '') {
+                    input.classList.add('is-danger'); // Apply danger class to input
+                    errorMessage.style.display = 'inline'; // Show error message
+                } else {
+                    input.classList.remove('is-danger'); // Remove danger class from input
+                    errorMessage.style.display = 'none'; // Hide error message
+                }
+            }
+
+            // Call validateInput() whenever the input changes or the form is submitted
+            document.getElementById('user-input-url').addEventListener('input', validateInput);
+        </script>
     </body>
 
 </html>
