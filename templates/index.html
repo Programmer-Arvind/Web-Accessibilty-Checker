@@ -8,23 +8,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <style>
-            .error-input {
-                border-color: #ff0000;
-                /* Red border */
-            }
-
-            .error-input:focus {
-                border-color: #ff0000;
-                /* Red border on focus */
-            }
-
-            .help.is-danger {
-                color: #ff0000;
-                /* Red text for error message */
-            }
-        </style>
         <title>Web Accessibility Checker</title>
     </head>
 
@@ -81,17 +64,19 @@
                 var input = document.getElementById('user-input-url');
                 var errorMessage = document.getElementById('error-message');
 
-                // Simple validation: checks if the input is empty
+                // Check if the input is empty
                 if (input.value.trim() === '') {
+                    // If empty, show the error message and apply the error class to the input
                     input.classList.add('is-danger'); // Apply danger class to input
                     errorMessage.style.display = 'inline'; // Show error message
                 } else {
+                    // If not empty, hide the error message and remove the error class from the input
                     input.classList.remove('is-danger'); // Remove danger class from input
                     errorMessage.style.display = 'none'; // Hide error message
                 }
             }
 
-            // Call validateInput() whenever the input changes or the form is submitted
+            // Attach the event listener to the input field
             document.getElementById('user-input-url').addEventListener('input', validateInput);
         </script>
     </body>
