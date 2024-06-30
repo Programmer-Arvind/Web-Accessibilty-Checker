@@ -17,6 +17,30 @@
                 width: 100%;
                 /* Adjust as needed */
             }
+
+            /* HIDE RADIO */
+            [type=radio] {
+                position: absolute;
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            /* IMAGE STYLES */
+            [type=radio]+i {
+                cursor: pointer;
+            }
+
+            /* CHECKED STYLES */
+            /* Increase specificity to directly target the label following the checked radio button */
+            input[type='radio']:checked + span.icon.is-large.is-left {
+                background-color: rgb(0, 100, 70); /* Change the label text color to white */
+                font-weight: bold; /* Optional: Makes the text bolder */
+            }
+/* 
+            [type=radio]:checked+label {
+                background-color: yellow;
+            } */
         </style>
     </head>
 
@@ -30,12 +54,12 @@
         </section>
         <section class="section">
             <div class="container is-fluid">
-                <form action="" class="form-group">
+                <form action="# " method="post" class="form-group" target="_blank">
                     <div class="field">
                         <label for="user-input-url" class="label">Enter URL: </label>
                         <p class="control has-icons-left has-icons-right">
                             <input id="user-input-url" class="input is-primary error-input" type="text"
-                                placeholder="https://example.com" />
+                                placeholder="https://example.com" name="user-input-url" />
                             <span class="icon is-small is-left">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
@@ -44,17 +68,19 @@
                         </p>
                     </div>
                     <div class="field is-horizontal">
-                        <label for="view" class="radio">Which View:</label>
+                        <!-- a -->
                         <div class="control ml-2">
-                            <input id="mobile-view" name="view" type="radio" aria-label="Mobile view" />
-                            <span class="icon is-small is-left">
+                            <input id="mobile-view" value="mobile-view" checked name="view" type="radio"
+                                aria-label="Mobile view" />
+                            <span class="icon is-large is-left">
                                 <i class="fas fa-mobile-alt"></i>
                             </span>
                             <label for="mobile-view" class="radio">Mobile View</label>
                         </div>
                         <div class="control ml-4">
-                            <input id="desktop-view" name="view" type="radio" aria-label="Desktop view" />
-                            <span class="icon is-small is-left">
+                            <input id="desktop-view" name="view" value="desktop-view" type="radio"
+                                aria-label="Desktop view" />
+                            <span class="icon is-large is-left">
                                 <i class="fas fa-desktop-alt"></i>
                             </span>
                             <label for="desktop-view" class="radio">Desktop View</label>
@@ -63,15 +89,14 @@
             </div>
 
             <div class="form-container">
-                <submit class="button is-primary is-dark is-responsive"><span class="icon is-small"><i
-                            class="fa-solid fa-check"></i></span><span>Check</span></submit>
+                <input type="submit" class="button is-primary is-dark is-responsive" value="Check">
             </div>
 
 
             </form>
             </div>
         </section>
-        <script>
+        <!--  <script>
             function validateInput() {
                 var input = document.getElementById('user-input-url');
                 var errorMessage = document.getElementById('error-message');
@@ -91,10 +116,9 @@
                     errorMessage.style.display = 'none'; // Hide error message
                 }
             }
-
             // Attach the event listener to the input field
-            document.getElementById('user-input-url').addEventListener('input', validateInput);
-        </script>
+        //     document.getElementById('user-input-url').addEventListener('input', validateInput);
+        </script> -->
     </body>
 
 </html>
