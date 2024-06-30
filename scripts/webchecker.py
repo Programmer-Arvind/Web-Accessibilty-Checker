@@ -10,9 +10,7 @@ command = [
     "npx",
     "lighthouse",
     '--output=html',
-    '--output-path=./templates/report.html',
-    # # '--quiet',
-    # "--preset=desktop"
+    '--output-path=./templates/report.html'
 ]
 
 # Function to run the command and handle errors
@@ -32,18 +30,3 @@ def run_lighthouse_command(url, view=None):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-
-# Run the command
-# result = run_lighthouse_command(command)
-
-# if result:
-#     # Load the Lighthouse report from the generated file with explicit UTF-8 encoding
-#     try:
-#         with open('report.json', 'r', encoding='utf-8') as f:
-#             lighthouse_report = json.load(f)
-
-#         # Print the results
-#         print(json.dumps(lighthouse_report, indent=2))
-
-#     except Exception as e:
-#         print(f"Error reading the Lighthouse report: {e}")
