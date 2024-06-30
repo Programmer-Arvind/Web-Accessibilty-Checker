@@ -76,16 +76,19 @@
                 var input = document.getElementById('user-input-url');
                 var errorMessage = document.getElementById('error-message');
 
-                // Check if the input is empty
-                if (input.value.trim() === '') {
+                var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+                    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+                    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+                    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+                    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+                    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+
+                if (!urlPattern.test(input.value)) {
                     // If empty, show the error message and apply the error class to the input
                     input.classList.add('is-danger'); // Apply danger class to input
                     errorMessage.style.display = 'inline'; // Show error message
-                } else {
-                    // If not empty, hide the error message and remove the error class from the input
-                    input.classList.remove('is-danger'); // Remove danger class from input
-                    errorMessage.style.display = 'none'; // Hide error message
                 }
+            }
             }
 
             // Attach the event listener to the input field
